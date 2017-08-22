@@ -21,6 +21,11 @@ class WscConnectUserSearchForm extends UserSearchForm {
 	/**
 	 * @inheritDoc
 	 */
+	public $activeMenuItem = 'wcf.acp.menu.link.user.wscConnectUsers.search';
+	
+	/**
+	 * @inheritDoc
+	 */
 	public $templateName = 'userSearch';
 	
 	/**
@@ -31,7 +36,7 @@ class WscConnectUserSearchForm extends UserSearchForm {
 		
 		//$this->userList->getConditionBuilder()->add('user_table.wscConnectToken != ?', ['']);
 		$this->userList->getConditionBuilder()->add('user_table.wscConnectToken IS NOT NULL');
-		$this->userList->getConditionBuilder()->add('user_table.wscConnectLoginTime > 0');
+		//$this->userList->getConditionBuilder()->add('user_table.wscConnectLoginTime > 0');
 		
 		// read again
 		$this->userList->readObjectIDs();

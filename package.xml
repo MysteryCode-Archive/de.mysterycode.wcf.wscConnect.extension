@@ -3,8 +3,8 @@
 	<packageinformation>
 		<packagename><![CDATA[WSC-Connect: Extension]]></packagename>
 		<packagedescription><![CDATA[Nice features for WSC-Connect]]></packagedescription>
-		<version>1.0.0 Alpha 1</version>
-		<date>2017-08-21</date>
+		<version>1.0.0 Alpha 2</version>
+		<date>2017-08-22</date>
 	</packageinformation>
 
 	<requiredpackages>
@@ -28,6 +28,21 @@
 
 		<!-- SQL -->
 		<instruction type="sql" />
+
+		<!-- XMLs -->
+		<instruction type="objectType" />
+		<instruction type="userNotificationEvent" />
+		<instruction type="userGroupOption" />
+		<instruction type="acpMenu" />
+
+		<!-- language -->
+		<instruction type="language" />
+	</instructions>
+
+	<instructions type="update" fromversion="1.0.0 Alpha *">
+		<!-- files -->
+		<instruction type="acpTemplate" />
+		<instruction type="file" />
 
 		<!-- XMLs -->
 		<instruction type="objectType" />

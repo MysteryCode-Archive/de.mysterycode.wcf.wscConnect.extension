@@ -2,6 +2,8 @@
 
 namespace wcf\acp\page;
 
+use wcf\page\AbstractPage;
+
 /**
  * Class WscConnectUserList
  *
@@ -21,6 +23,11 @@ class WscConnectUserListPage extends UserListPage {
 	/**
 	 * @inheritDoc
 	 */
+	public $activeMenuItem = 'wcf.acp.menu.link.user.wscConnectUsers';
+	
+	/**
+	 * @inheritDoc
+	 */
 	public $templateName = 'userList';
 	
 	/**
@@ -28,11 +35,23 @@ class WscConnectUserListPage extends UserListPage {
 	 */
 	public $validSortFields = ['userID', 'registrationDate', 'username', 'lastActivityTime', 'profileHits', 'activityPoints', 'likesReceived', 'wscConnectLoginDevice', 'wscConnectLoginTime'];
 	
-	protected function readUsers() {
-		parent::readUsers();
+	/**
+	 * @inheritDoc
+	 */
+	public function readParameters() {
+		parent::readParameters();
 		
 		//$this->conditions->add('user_table.wscConnectToken != ?', ['']);
 		$this->conditions->add('user_table.wscConnectToken IS NOT NULL');
-		$this->conditions->add('user_table.wscConnectLoginTime > 0');
+		//$this->conditions->add('user_table.wscConnectLoginTime > 0');
+	}
+	
+	/**
+	 * @inheritDoc
+	 */
+	public function show() {
+		$this->activeMenuItem = 'wcf.acp.menu.link.user.wscConnectUsers';
+		
+		AbstractPage::show();
 	}
 }

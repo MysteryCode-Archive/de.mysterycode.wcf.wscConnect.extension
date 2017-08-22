@@ -31,6 +31,11 @@ class CustomNotificationSendForm extends AbstractForm {
 	public $neededModules = ['MODULE_WSC_CONNECT'];
 	
 	/**
+	 * @inheritDoc
+	 */
+	public $activeMenuItem = 'wcf.acp.menu.link.user.customnotifications.add';
+	
+	/**
 	 * @var string
 	 */
 	public $subject = '';
@@ -54,6 +59,13 @@ class CustomNotificationSendForm extends AbstractForm {
 	 * @var User[]
 	 */
 	public $recipientUsers = [];
+	
+	/**
+	 * @var string
+	 * @deprecated
+	 * TODO tornado
+	 */
+	public $action = 'add';
 	
 	/**
 	 * @inheritDoc

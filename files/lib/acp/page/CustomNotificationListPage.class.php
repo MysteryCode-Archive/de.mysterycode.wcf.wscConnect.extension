@@ -25,6 +25,11 @@ class CustomNotificationListPage extends SortablePage {
 	/**
 	 * @inheritDoc
 	 */
+	public $activeMenuItem = 'wcf.acp.menu.link.user.customnotifications.list';
+	
+	/**
+	 * @inheritDoc
+	 */
 	public $objectListClassName = CustomNotificationList::class;
 	
 	/**

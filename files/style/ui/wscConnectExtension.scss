@@ -1,0 +1,11 @@
+body.wcfAcp[data-template="customNotificationList"] {
+	#content {
+		ul li.recipients {
+			flex: 0 0 100%;
+
+			&::after {
+				content: "";
+			}
+		}
+	}
+}

@@ -28,7 +28,7 @@ class CustomNotificationNotificationEvent extends AbstractUserNotificationEvent 
 	 * @inheritDoc
 	 */
 	public function getLink() {
-		$this->userNotificationObject->getDecoratedObject()->url;
+		return $this->userNotificationObject->getDecoratedObject()->url;
 	}
 	
 	/**

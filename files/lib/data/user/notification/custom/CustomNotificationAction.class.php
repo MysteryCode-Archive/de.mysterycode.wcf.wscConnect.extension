@@ -5,6 +5,7 @@ namespace wcf\data\user\notification\custom;
 use wcf\data\AbstractDatabaseObjectAction;
 use wcf\system\exception\UserInputException;
 use wcf\system\user\notification\event\CustomNotificationNotificationEvent;
+use wcf\system\user\notification\object\CustomNotificationNotificationObject;
 use wcf\system\user\notification\UserNotificationHandler;
 
 /**
@@ -25,8 +26,8 @@ class CustomNotificationAction extends AbstractDatabaseObjectAction {
 		$notification = parent::create();
 		
 		if (empty($this->parameters['silentCreation'])) {
-			$notificationEvent = new CustomNotificationNotificationEvent($notification);
-			UserNotificationHandler::getInstance()->fireEvent('custom', 'de.mysterycode.wcf.wscConnect.notification.custom', $notificationEvent, $notification->getRecipientUserIDs());
+			$notificationObject = new CustomNotificationNotificationObject($notification);
+			UserNotificationHandler::getInstance()->fireEvent('custom', 'de.mysterycode.wcf.wscConnect.notification.custom', $notificationObject, $notification->getRecipientUserIDs());
 		}
 		
 		return $notification;

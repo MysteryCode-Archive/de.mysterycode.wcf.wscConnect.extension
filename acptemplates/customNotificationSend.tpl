@@ -27,7 +27,7 @@
 			<dd>
 				{* TODO tornado *}
 				{*<input id="subject" name="subject" type="text" value="{$i18nPlainValues[subject]}">*}
-				<input id="subject" name="subject" type="text" value="{$subject}">
+				<input id="subject" name="subject" type="text" value="{$subject}" class="long" required>
 				{if $errorField == 'subject'}
 					<small class="innerError">
 						{if $errorType == 'empty'}
@@ -46,7 +46,7 @@
 			<dt><label for="url">{lang}wcf.acp.wsc_connect.notification.custom.url{/lang}</label></dt>
 			<dd>
 				{*<input id="url" name="url" type="text" value="{$$i18nPlainValues[url]}">*}
-				<input id="url" name="url" type="text" value="{$url}">
+				<input id="url" name="url" type="text" value="{$url}" class="long" required>
 				{*{include file='multipleLanguageInputJavascript' elementIdentifier='url' forceSelection=false}*}
 				{if $errorField == 'url'}
 					<small class="innerError">
@@ -64,7 +64,7 @@
 			<dt><label for="message">{lang}wcf.acp.wsc_connect.notification.custom.message{/lang}</label></dt>
 			<dd>
 				{*<textarea id="message" name="message">{$$i18nPlainValues[url]}</textarea>*}
-				<textarea id="message" name="message">{$url}</textarea>
+				<textarea id="message" name="message" class="long" required>{$url}</textarea>
 				{* TODO tornado *}
 				{*{include file='multipleLanguageInputJavascript' elementIdentifier='message' forceSelection=false}*}
 				<small>{lang}wcf.acp.wsc_connect.notification.custom.message.description{/lang}</small>
@@ -83,7 +83,7 @@
 		<dl{if $errorField == 'recipients'} class="formError"{/if}>
 			<dt><label for="recipients">{lang}wcf.acp.wsc_connect.notification.custom.recipients{/lang}</label></dt>
 			<dd>
-				<input id="recipients" name="recipients" type="text" value="{$url}">
+				<input id="recipients" name="recipients" type="text" value="{$url}" class="long" required>
 				{if $errorField == 'recipients'}
 					<small class="innerError">
 						{if $errorType == 'empty'}

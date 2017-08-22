@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/vortex/acpMenu.xsd">
+	<import>
+		<acpmenuitem name="wcf.acp.menu.link.user.wscConnectUsers">
+			<parent>wcf.acp.menu.link.user.management</parent>
+			<controller>wcf\acp\page\WscConnectUserListPage</controller>
+			<permissions>admin.user.wscConnect.user.canView</permissions>
+		</acpmenuitem>
+		<acpmenuitem name="wcf.acp.menu.link.user.wscConnectUsers.search">
+			<controller>wcf\acp\form\WscConnectUserSearchForm</controller>
+			<parent>wcf.acp.menu.link.user.wscConnectUsers</parent>
+			<permissions>admin.user.canSearchUser</permissions>
+			<icon>fa-search</icon>
+		</acpmenuitem>
+
+		<acpmenuitem name="wcf.acp.menu.link.user.customnotifications">
+			<parent>wcf.acp.menu.link.user</parent>
+		</acpmenuitem>
+		<acpmenuitem name="wcf.acp.menu.link.user.customnotifications.list">
+			<parent>wcf.acp.menu.link.user.customnotifications</parent>
+			<controller>wcf\acp\page\CustomNotificationListPage</controller>
+			<permissions>admin.user.wscConnect.notification.custom.canView</permissions>
+		</acpmenuitem>
+		<acpmenuitem name="wcf.acp.menu.link.user.customnotifications.add">
+			<parent>wcf.acp.menu.link.user.customnotifications.list</parent>
+			<controller>wcf\acp\form\CustomNotificationSendForm</controller>
+			<permissions>admin.user.wscConnect.notification.custom.canAdd</permissions>
+			<icon>fa-plus</icon>
+		</acpmenuitem>
+	</import>
+</data>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/language.xsd" languagecode="de">
+	<category name="wcf.acp.group">
+		<item name="admin.user.wscConnect"><![CDATA[WSC-Connect]]></item>
+
+		<item name="admin.user.wscConnect.user.canView"><![CDATA[Kann in WSC-Connect registrierte Benutzer auflisten]]></item>
+
+		<item name="admin.user.wscConnect.notification.custom.canView"><![CDATA[Kann Push-Benachrichtigungen auflisten]]></item>
+		<item name="admin.user.wscConnect.notification.custom.canAdd"><![CDATA[Kann Push-Benachrichtigungen versenden]]></item>
+	</category>
+
+	<category name="wcf.acp.menu">
+		<item name="wcf.acp.menu.link.user.customnotifications"><![CDATA[Benachrichtigungen]]></item>
+		<item name="wcf.acp.menu.link.user.customnotifications.list"><![CDATA[Push-Benachrichtigungen]]></item>
+		<item name="wcf.acp.menu.link.user.customnotifications.add"><![CDATA[Push-Benachrichtigung senden]]></item>
+
+		<item name="wcf.acp.menu.link.user.wscConnectUsers"><![CDATA[WSC-Connect]]></item>
+		<item name="wcf.acp.menu.link.user.wscConnectUsers.search"><![CDATA[In WSC-Connect registierte Benutzer suchen]]></item>
+	</category>
+
+	<category name="wcf.acp.wsc_connect">
+		<item name="wcf.acp.wsc_connect.notification.custom.url"><![CDATA[Hinterlegte URL]]></item>
+		<item name="wcf.acp.wsc_connect.notification.custom.message"><![CDATA[Mitteilungstext]]></item>
+		<item name="wcf.acp.wsc_connect.notification.custom.recipients"><![CDATA[Empfänger]]></item>
+		<item name="wcf.acp.wsc_connect.notification.custom.noItems"><![CDATA[Es wurden noch keine Benachrichtigungen versandt.]]></item>
+	</category>
+
+	<category name="wcf.user.notification">
+		<item name="de.mysterycode.wcf.wscConnect.notification.custom"><![CDATA[WSC-Connect]]></item>
+		<item name="de.mysterycode.wcf.wscConnect.notification.custom.custom"><![CDATA[Benachrichtigungen der Administration]]></item>
+	</category>
+</language>

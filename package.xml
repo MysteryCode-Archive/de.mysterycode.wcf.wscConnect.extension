@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package name="de.mysterycode.wcf.wscConnect.extension" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com https://mysterycode.de/XSD/package.xsd">
+	<packageinformation>
+		<packagename><![CDATA[WSC-Connect: Extension]]></packagename>
+		<packagedescription><![CDATA[Nice features for WSC-Connect]]></packagedescription>
+		<version>1.0.0 Alpha 1</version>
+		<date>2017-08-21</date>
+	</packageinformation>
+
+	<requiredpackages>
+		<requiredpackage minversion="3.0.0"><![CDATA[com.woltlab.wcf]]></requiredpackage>
+		<requiredpackage minversion="3.0.6"><![CDATA[de.cwalz.wscConnect]]></requiredpackage>
+	</requiredpackages>
+
+	<excludedpackages>
+		<excludedpackage version="3.1.0 Alpha 1"><![CDATA[com.woltlab.wcf]]></excludedpackage>
+	</excludedpackages>
+
+	<authorinformation>
+		<author><![CDATA[Florian Gail]]></author>
+		<authorurl><![CDATA[https://www.mysterycode.de]]></authorurl>
+	</authorinformation>
+
+	<instructions type="install">
+		<!-- files -->
+		<instruction type="acpTemplate" />
+		<instruction type="file" />
+
+		<!-- SQL -->
+		<instruction type="sql" />
+
+		<!-- XMLs -->
+		<instruction type="objectType" />
+		<instruction type="userNotificationEvent" />
+		<instruction type="userGroupOption" />
+		<instruction type="acpMenu" />
+
+		<!-- language -->
+		<instruction type="language" />
+	</instructions>
+</package>

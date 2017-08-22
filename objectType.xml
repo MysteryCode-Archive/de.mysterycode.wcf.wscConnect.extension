@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/vortex/objectType.xsd">
+	<import>
+		<type>
+			<name>de.mysterycode.wcf.wscConnect.notification.custom</name>
+			<definitionname>com.woltlab.wcf.notification.objectType</definitionname>
+			<classname>wcf\system\user\notification\object\type\CustomNotificationNotificationObjectType</classname>
+			<category>de.mysterycode.wcf.wscConnect</category>
+		</type>
+	</import>
+</data>

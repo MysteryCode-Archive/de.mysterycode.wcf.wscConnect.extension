@@ -1,8 +1,9 @@
 <?php
 
-namespace wcf\page;
+namespace wcf\acp\page;
 
 use wcf\data\user\notification\custom\CustomNotificationList;
+use wcf\page\SortablePage;
 
 /**
  * Class CustomNotificationListPage

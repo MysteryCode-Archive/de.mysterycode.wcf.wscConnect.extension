@@ -1,8 +1,6 @@
 <?php
 
-namespace wcf\page;
-
-use wcf\acp\page\UserListPage;
+namespace wcf\acp\page;
 
 /**
  * Class WscConnectUserList

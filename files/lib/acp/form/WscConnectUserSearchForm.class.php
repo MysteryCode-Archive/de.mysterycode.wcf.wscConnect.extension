@@ -11,7 +11,7 @@ class WscConnectUserSearchForm extends UserSearchForm {
 	/**
 	 * @inheritDoc
 	 */
-	public $neededPermissions = ['admin.user.wscConnect.notification.user.canView'];
+	public $neededPermissions = ['admin.user.wscConnect.user.canView'];
 	
 	/**
 	 * @inheritDoc

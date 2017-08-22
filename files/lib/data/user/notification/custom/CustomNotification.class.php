@@ -2,8 +2,8 @@
 
 namespace wcf\data\user\notification\custom;
 
-use wcf\data\DatabaseObject;
 use wcf\data\user\User;
+use wcf\data\DatabaseObject;
 use wcf\system\WCF;
 
 /**

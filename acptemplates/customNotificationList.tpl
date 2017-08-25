@@ -23,7 +23,7 @@
 				</h2>
 
 				<div class="sectionDescription">
-					<ul class="inlineList commaSeparated">
+					<ul class="inlineList">
 						<li class="recipients"><span class="icon icon16 fa-users"></span> {$notification->recipientUsernames}</li>
 
 						<li><span class="icon icon16 fa-clock-o"></span> {@$notification->time|time}</li>

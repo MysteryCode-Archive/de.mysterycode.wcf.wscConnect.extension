@@ -3,30 +3,36 @@
 	<category name="wcf.acp.group">
 		<item name="admin.user.wscConnect"><![CDATA[WSC-Connect]]></item>
 
-		<item name="admin.user.wscConnect.user.canView"><![CDATA[Kann in WSC-Connect registrierte Benutzer auflisten]]></item>
+		<item name="admin.user.wscConnect.user.canView"><![CDATA[Can view list of users connected to WSC-Connect]]></item>
 
-		<item name="admin.user.wscConnect.notification.custom.canView"><![CDATA[Kann Push-Benachrichtigungen auflisten]]></item>
-		<item name="admin.user.wscConnect.notification.custom.canAdd"><![CDATA[Kann Push-Benachrichtigungen versenden]]></item>
+		<item name="admin.user.wscConnect.notification.custom.canView"><![CDATA[Can view Push-Notifications]]></item>
+		<item name="admin.user.wscConnect.notification.custom.canAdd"><![CDATA[Can send Push-Notifications]]></item>
 	</category>
 
 	<category name="wcf.acp.menu">
-		<item name="wcf.acp.menu.link.user.customnotifications"><![CDATA[Benachrichtigungen]]></item>
-		<item name="wcf.acp.menu.link.user.customnotifications.list"><![CDATA[Push-Benachrichtigungen]]></item>
-		<item name="wcf.acp.menu.link.user.customnotifications.add"><![CDATA[Push-Benachrichtigung senden]]></item>
+		<item name="wcf.acp.menu.link.user.customnotifications"><![CDATA[Notifications]]></item>
+		<item name="wcf.acp.menu.link.user.customnotifications.list"><![CDATA[Push-Notifications]]></item>
+		<item name="wcf.acp.menu.link.user.customnotifications.add"><![CDATA[Send Push-Notification]]></item>
 
 		<item name="wcf.acp.menu.link.user.wscConnectUsers"><![CDATA[WSC-Connect]]></item>
-		<item name="wcf.acp.menu.link.user.wscConnectUsers.search"><![CDATA[In WSC-Connect registierte Benutzer suchen]]></item>
+		<item name="wcf.acp.menu.link.user.wscConnectUsers.search"><![CDATA[Search for WSC-Connect-users]]></item>
 	</category>
 
 	<category name="wcf.acp.wsc_connect">
-		<item name="wcf.acp.wsc_connect.notification.custom.url"><![CDATA[Hinterlegte URL]]></item>
-		<item name="wcf.acp.wsc_connect.notification.custom.message"><![CDATA[Mitteilungstext]]></item>
-		<item name="wcf.acp.wsc_connect.notification.custom.recipients"><![CDATA[Empfänger]]></item>
-		<item name="wcf.acp.wsc_connect.notification.custom.noItems"><![CDATA[Es wurden noch keine Benachrichtigungen versandt.]]></item>
+		<item name="wcf.acp.wsc_connect.notification.custom.url"><![CDATA[Link]]></item>
+		<item name="wcf.acp.wsc_connect.notification.custom.message"><![CDATA[Message]]></item>
+		<item name="wcf.acp.wsc_connect.notification.custom.message.description"><![CDATA[You can use several variables. They will be replaced automatically when shown to the user. Available are:<br>
+<ul>
+	<li><code class="inlineCode">{literal}{$username$}{/literal}</code> for the user's username</code></li>
+	<li><code class="inlineCode">{literal}{$userID$}{/literal}</code> for the user's ID</code></li>
+	<li><code class="inlineCode">{literal}{$email$}{/literal}</code> for the user's email-address</code></li>
+</ul>]]></item>
+		<item name="wcf.acp.wsc_connect.notification.custom.recipients"><![CDATA[Recipients]]></item>
+		<item name="wcf.acp.wsc_connect.notification.custom.noItems"><![CDATA[There are no sent notifications yet.]]></item>
 	</category>
 
 	<category name="wcf.user.notification">
 		<item name="de.mysterycode.wcf.wscConnect.notification.custom"><![CDATA[WSC-Connect]]></item>
-		<item name="de.mysterycode.wcf.wscConnect.notification.custom.custom"><![CDATA[Benachrichtigungen der Administration]]></item>
+		<item name="de.mysterycode.wcf.wscConnect.notification.custom.custom"><![CDATA[Notificationy by administrators]]></item>
 	</category>
 </language>

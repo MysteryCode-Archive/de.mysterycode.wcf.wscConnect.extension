@@ -65,6 +65,7 @@
 			<dd>
 				{*<textarea id="message" name="message">{$$i18nPlainValues[url]}</textarea>*}
 				<textarea id="message" name="message" class="long" required>{$url}</textarea>
+				{include file='wysiwyg' wysiwygSelector='message'}
 				{* TODO tornado *}
 				{*{include file='multipleLanguageInputJavascript' elementIdentifier='message' forceSelection=false}*}
 				<small>{lang}wcf.acp.wsc_connect.notification.custom.message.description{/lang}</small>

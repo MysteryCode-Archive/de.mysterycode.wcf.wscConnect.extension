@@ -35,7 +35,7 @@ class CustomNotification extends DatabaseObject {
 	/**
 	 * @var string[]
 	 */
-	public const SUPPORTED_VARIABLES = ['username', 'userID', 'email'];
+	const SUPPORTED_VARIABLES = ['username', 'userID', 'email'];
 	
 	/**
 	 * @return string

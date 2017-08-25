@@ -7,5 +7,9 @@
 			<classname>wcf\system\user\notification\object\type\CustomNotificationNotificationObjectType</classname>
 			<category>de.mysterycode.wcf.wscConnect</category>
 		</type>
+		<type>
+			<name>de.mysterycode.wcf.wscConnect.notification.custom</name>
+			<definitionname>com.woltlab.wcf.message</definitionname>
+		</type>
 	</import>
 </data>

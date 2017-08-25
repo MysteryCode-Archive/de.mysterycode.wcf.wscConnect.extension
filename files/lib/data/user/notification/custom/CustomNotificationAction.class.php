@@ -22,6 +22,10 @@ class CustomNotificationAction extends AbstractDatabaseObjectAction {
 	 * @inheritDoc
 	 */
 	public function create() {
+		if (!empty($this->parameters['htmlInputProcessor']) && empty($this->parameters['data']['message'])) {
+			$this->parameters['data']['message'] = $this->parameters['htmlInputProcessor']->getHtml();
+		}
+		
 		/** @var CustomNotification $notification */
 		$notification = parent::create();
 		

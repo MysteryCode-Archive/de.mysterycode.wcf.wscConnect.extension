@@ -3,10 +3,10 @@
 namespace wcf\acp\form;
 
 use wcf\data\user\notification\custom\CustomNotificationAction;
-use wcf\data\user\notification\custom\CustomNotificationEditor;
 use wcf\data\user\User;
 use wcf\form\AbstractForm;
 use wcf\system\exception\UserInputException;
+use wcf\system\html\input\HtmlInputProcessor;
 use wcf\system\WCF;
 use wcf\util\MessageUtil;
 use wcf\util\StringUtil;
@@ -68,6 +68,11 @@ class CustomNotificationSendForm extends AbstractForm {
 	public $action = 'add';
 	
 	/**
+	 * @var HtmlInputProcessor
+	 */
+	public $htmlInputProcessor;
+	
+	/**
 	 * @inheritDoc
 	 */
 	public function readFormParameters() {
@@ -97,6 +102,13 @@ class CustomNotificationSendForm extends AbstractForm {
 		if (empty($this->message)) throw new UserInputException('message');
 		if (empty($this->url)) throw new UserInputException('url');
 		if (empty($this->recipientUsers)) throw new UserInputException('recipients');
+		
+		$this->htmlInputProcessor = new HtmlInputProcessor();
+		$this->htmlInputProcessor->process($this->message, 'de.mysterycode.wcf.wscConnect.notification.custom', 0);
+		
+		if ($this->htmlInputProcessor->appearsToBeEmpty()) {
+			throw new UserInputException('message');
+		}
 	}
 	
 	/**
@@ -108,13 +120,13 @@ class CustomNotificationSendForm extends AbstractForm {
 		$this->objectAction = new CustomNotificationAction([], 'create', [
 			'data' => array_merge($this->additionalFields, [
 				'subject' => $this->subject,
-				'message' => $this->message,
 				'url' => $this->url,
 				'recipientUsernames' => $this->recipients,
 				'userID' => WCF::getUser()->userID ?: null,
 				'username' => WCF::getUser()->username,
 				'time' => TIME_NOW
-			])
+			]),
+			'htmlInputProcessor' => $this->htmlInputProcessor
 		]);
 		$notification = $this->objectAction->executeAction();
 		

@@ -34,7 +34,7 @@
 			</header>
 
 			<div class="notificationContent">
-				{$notification->getMessage()}
+				{@$notification->getMessage(true)}
 			</div>
 		</section>
 	{/foreach}

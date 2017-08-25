@@ -45,18 +45,22 @@ class CustomNotification extends DatabaseObject {
 	}
 	
 	/**
+	 * @param boolean $skipReplace prevents replacing variables by it's values
 	 * @return string
 	 */
-	public function getMessage() {
+	public function getMessage($skipReplace = false) {
 		$message = WCF::getLanguage()->get($this->message);
 		
 		$htmlOutputProcessor = new HtmlOutputProcessor();
 		$htmlOutputProcessor->setOutputType('text/html');
 		$htmlOutputProcessor->process($message, 'de.mysterycode.wcf.wscConnect.notification.custom', $this->notificationID);
+		$message = $htmlOutputProcessor->getHtml();
 		
-		$message = preg_replace_callback('/\{\$(' . implode('|', self::SUPPORTED_VARIABLES) . ')\$\}/', function ($match) {
-			return $this->replaceVariable($match);
-		}, $htmlOutputProcessor->getHtml());
+		if (!$skipReplace) {
+			$message = preg_replace_callback('/\{\$(' . implode('|', self::SUPPORTED_VARIABLES) . ')\$\}/', function ($match) {
+				return $this->replaceVariable($match);
+			}, $message);
+		}
 		
 		return $message;
 	}

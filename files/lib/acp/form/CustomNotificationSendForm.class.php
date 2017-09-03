@@ -4,7 +4,6 @@ namespace wcf\acp\form;
 
 use wcf\data\user\notification\custom\CustomNotificationAction;
 use wcf\data\user\User;
-use wcf\form\AbstractForm;
 use wcf\system\exception\UserInputException;
 use wcf\system\html\input\HtmlInputProcessor;
 use wcf\system\WCF;
@@ -17,9 +16,7 @@ use wcf\util\StringUtil;
  * @package wcf\acp\form
  * @property CustomNotificationAction $objectAction
  */
-//TODO tornado
-//class CustomNotificationSendForm extends AbstractAcpForm {
-class CustomNotificationSendForm extends AbstractForm {
+class CustomNotificationSendForm extends AbstractAcpForm {
 	/**
 	 * @inheritDoc
 	 */
@@ -59,13 +56,6 @@ class CustomNotificationSendForm extends AbstractForm {
 	 * @var User[]
 	 */
 	public $recipientUsers = [];
-	
-	/**
-	 * @var string
-	 * @deprecated
-	 * TODO tornado
-	 */
-	public $action = 'add';
 	
 	/**
 	 * @var HtmlInputProcessor
@@ -130,8 +120,7 @@ class CustomNotificationSendForm extends AbstractForm {
 		]);
 		$notification = $this->objectAction->executeAction();
 		
-		//TODO tornado
-		//$this->saveI18n($notification['returnValues'], CustomNotificationEditor::class);
+		$this->saveI18n($notification['returnValues'], CustomNotificationEditor::class);
 		
 		$this->reset();
 	}
@@ -140,11 +129,7 @@ class CustomNotificationSendForm extends AbstractForm {
 	 * @inheritDoc
 	 */
 	public function reset() {
-		//TODO tornado
-		//parent::reset();
-		$this->saved();
-		// show success message
-		WCF::getTPL()->assign('success', true);
+		parent::reset();
 		
 		$this->subject = $this->message = $this->url = $this->recipients = '';
 		$this->recipientUsers = [];

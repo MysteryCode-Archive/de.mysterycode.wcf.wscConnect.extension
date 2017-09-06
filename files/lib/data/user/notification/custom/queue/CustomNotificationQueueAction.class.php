@@ -19,7 +19,7 @@ class CustomNotificationQueueAction extends AbstractDatabaseObjectAction {
 	/**
 	 * @var string
 	 */
-	protected static $apiURL = 'https://api.wsc-connect.com/messages/' + WSC_CONNECT_APP_ID;
+	protected static $apiURL = 'https://api.wsc-connect.com/messages/' . WSC_CONNECT_APP_ID;
 	
 	/**
 	 * Validates the fire action
@@ -32,18 +32,19 @@ class CustomNotificationQueueAction extends AbstractDatabaseObjectAction {
 	 * Fires the push notification
 	 */
 	public function fire() {
-		$this->readObjects();
+		if (empty($this->objects)) {
+			$this->readObjects();
+		}
 		
-		WCF::getDB()->beginTransaction();
 		foreach ($this->getObjects() as $item) {
 			$object = $item->getNotification();
 			if ($item->userID) {
 				$userIDs = [$item->getUser()];
-				$message = $object->getPersonalizedMessage($item->getUser());
+				$message = $object->getPersonalizedMessage($item->getUser(), 'text/plain');
 			}
-			else{
+			else {
 				$userIDs = $object->getRecipientUserIDs();
-				$message = $object->getMessage(true);
+				$message = $object->getMessage(true, 'text/plain');
 			}
 			
 			$request = new HTTPRequest(self::$apiURL, [], [
@@ -55,24 +56,15 @@ class CustomNotificationQueueAction extends AbstractDatabaseObjectAction {
 			try {
 				$request->execute();
 				
-				$itemEditor = new CustomNotificationQueueEditor($item);
-				$itemEditor->delete();
-				
-				//$notificationEditor = new CustomNotificationEditor($object);
-				//$notificationEditor->update([
-				//	'hasSucceeded' => 1
-				//]);
+				$item->delete();
 			}
 			catch (\Exception $e) {
-				$itemEditor = new CustomNotificationQueueEditor($item);
-				$itemEditor->update([
+				$item->update([
 					'errored' => 1,
 					'error' => @serialize($e)
 				]);
 			}
 		}
-		WCF::getDB()->commitTransaction();
-		
 		
 		$sql = "UPDATE  wcf" . WCF_N . "_user_notification_custom n
 			SET     n.hasSucceeded = ?

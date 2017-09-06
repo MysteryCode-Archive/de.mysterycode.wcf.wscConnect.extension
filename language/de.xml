@@ -23,13 +23,16 @@
 		<item name="wcf.acp.wsc_connect.notification.custom.type.push"><![CDATA[Push-Nachricht]]></item>
 		<item name="wcf.acp.wsc_connect.notification.custom.type.notification"><![CDATA[WSC-Benachrichtigung]]></item>
 		<item name="wcf.acp.wsc_connect.notification.custom.url"><![CDATA[Hinterlegte URL]]></item>
+		<item name="wcf.acp.wsc_connect.notification.custom.url.description"><![CDATA[Diese Funktion ist nur verfügbar, wenn die Meldung als WSC-Benachrichtigung versandt wird.]]></item>
 		<item name="wcf.acp.wsc_connect.notification.custom.message"><![CDATA[Mitteilungstext]]></item>
 		<item name="wcf.acp.wsc_connect.notification.custom.message.description"><![CDATA[Sie können im Text diverse Variablen verwenden, die bei der Anzeige automatisch ersetzt werden. Verfügbar sind:<br>
 <ul>
 	<li><code class="inlineCode">{literal}{$username$}{/literal}</code> für den Benutzernamen</code></li>
 	<li><code class="inlineCode">{literal}{$userID$}{/literal}</code> für die ID des Benutzers</code></li>
 	<li><code class="inlineCode">{literal}{$email$}{/literal}</code> für die E-Mail-Adresse des Benutzers</code></li>
-</ul>]]></item>
+</ul>
+
+Nicht-WSC-Push-Benachrichtigungen werden als Plaintext versandt; Styling und eingebettete Objekte sind dementsprechend nicht nutzbar.]]></item>
 		<item name="wcf.acp.wsc_connect.notification.custom.recipients"><![CDATA[Empfänger]]></item>
 		<item name="wcf.acp.wsc_connect.notification.custom.noItems"><![CDATA[Es wurden noch keine Benachrichtigungen versandt.]]></item>
 	</category>

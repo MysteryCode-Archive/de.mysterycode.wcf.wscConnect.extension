@@ -21,6 +21,11 @@ class CustomNotificationQueue extends DatabaseObject {
 	/**
 	 * @inheritDoc
 	 */
+	protected static $databaseTableName = 'user_notification_custom_queue';
+	
+	/**
+	 * @inheritDoc
+	 */
 	protected static $databaseTableIndexName = 'itemID';
 	
 	/**

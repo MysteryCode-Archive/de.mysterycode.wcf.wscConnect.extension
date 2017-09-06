@@ -53,6 +53,11 @@ class CustomNotificationSendForm extends AbstractAcpForm {
 	public $recipients = '';
 	
 	/**
+	 * @var boolean
+	 */
+	public $isNotification = 0;
+	
+	/**
 	 * @var User[]
 	 */
 	public $recipientUsers = [];
@@ -71,6 +76,7 @@ class CustomNotificationSendForm extends AbstractAcpForm {
 		if (!empty($_POST['subject'])) $this->subject = StringUtil::trim(MessageUtil::stripCrap($_POST['subject']));
 		if (!empty($_POST['message'])) $this->message = StringUtil::trim(MessageUtil::stripCrap($_POST['message']));
 		if (!empty($_POST['url'])) $this->url = StringUtil::trim(MessageUtil::stripCrap($_POST['url']));
+		if (!empty($_POST['isNotification'])) $this->isNotification = 1;
 		if (!empty($_POST['recipients'])) {
 			$this->recipients = StringUtil::trim(MessageUtil::stripCrap($_POST['recipients']));
 			
@@ -114,7 +120,8 @@ class CustomNotificationSendForm extends AbstractAcpForm {
 				'recipientUsernames' => $this->recipients,
 				'userID' => WCF::getUser()->userID ?: null,
 				'username' => WCF::getUser()->username,
-				'time' => TIME_NOW
+				'time' => TIME_NOW,
+				'isNotification' => $this->isNotification
 			]),
 			'htmlInputProcessor' => $this->htmlInputProcessor
 		]);
@@ -133,6 +140,7 @@ class CustomNotificationSendForm extends AbstractAcpForm {
 		
 		$this->subject = $this->message = $this->url = $this->recipients = '';
 		$this->recipientUsers = [];
+		$this->isNotification = 0;
 	}
 	
 	/**
@@ -145,7 +153,8 @@ class CustomNotificationSendForm extends AbstractAcpForm {
 			'subject' => $this->subject,
 			'message' => $this->message,
 			'url' => $this->url,
-			'recipients' => $this->recipients
+			'recipients' => $this->recipients,
+			'isNotification' => $this->isNotification
 		]);
 	}
 }

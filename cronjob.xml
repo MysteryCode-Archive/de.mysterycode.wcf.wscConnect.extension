@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com https://mysterycode.de/XSD/cronjob.xsd">
+	<import>
+		<cronjob name="de.mysterycode.wcf.wscConnect.fire">
+			<classname>wcf\system\cronjob\CustomNotificationCronjob</classname>
+			<description>Fires queued push notifications through WSC-Connect-API</description>
+			<startdom>*</startdom>
+			<startdow>*</startdow>
+			<starthour>*</starthour>
+			<startminute>*/10</startminute>
+			<startmonth>*</startmonth>
+			<canbeedited>1</canbeedited>
+			<canbedisabled>1</canbedisabled>
+			<active>1</active>
+		</cronjob>
+	</import>
+</data>

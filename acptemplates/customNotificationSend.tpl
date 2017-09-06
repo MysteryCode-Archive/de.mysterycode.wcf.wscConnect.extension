@@ -48,6 +48,7 @@
 				{*<input id="url" name="url" type="text" value="{$$i18nPlainValues[url]}">*}
 				<input id="url" name="url" type="text" value="{$url}" class="long" required>
 				{*{include file='multipleLanguageInputJavascript' elementIdentifier='url' forceSelection=false}*}
+				<small>{lang}wcf.acp.wsc_connect.notification.custom.url.description{/lang}</small>
 				{if $errorField == 'url'}
 					<small class="innerError">
 						{if $errorType == 'empty'}
@@ -57,6 +58,16 @@
 						{/if}
 					</small>
 				{/if}
+			</dd>
+		</dl>
+
+		<dl{if $errorField == 'isNotification'} class="formError"{/if}>
+			<dt></dt>
+			<dd>
+				<label>
+					<input type="checkbox" id="isNotification" name="isNotification" value="1"{if $isNotification} checked{/if} />
+					{lang}wcf.acp.wsc_connect.notification.custom.isNotification{/lang}
+				</label>
 			</dd>
 		</dl>
 

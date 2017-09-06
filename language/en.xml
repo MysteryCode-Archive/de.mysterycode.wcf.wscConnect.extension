@@ -19,6 +19,9 @@
 	</category>
 
 	<category name="wcf.acp.wsc_connect">
+		<item name="wcf.acp.wsc_connect.notification.custom.isNotification"><![CDATA[Send as WSC-Notification]]></item>
+		<item name="wcf.acp.wsc_connect.notification.custom.type.push"><![CDATA[Push-Notification]]></item>
+		<item name="wcf.acp.wsc_connect.notification.custom.type.notification"><![CDATA[WSC-Notification]]></item>
 		<item name="wcf.acp.wsc_connect.notification.custom.url"><![CDATA[Link]]></item>
 		<item name="wcf.acp.wsc_connect.notification.custom.message"><![CDATA[Message]]></item>
 		<item name="wcf.acp.wsc_connect.notification.custom.message.description"><![CDATA[You can use several variables. They will be replaced automatically when shown to the user. Available are:<br>

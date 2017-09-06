@@ -2,7 +2,6 @@
 
 namespace wcf\data\user\notification\custom;
 
-
 use wcf\data\DatabaseObjectEditor;
 
 /**

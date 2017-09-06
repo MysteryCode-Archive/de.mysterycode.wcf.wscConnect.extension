@@ -20,6 +20,7 @@ use wcf\system\WCF;
  * @property-read string  $username
  * @property-read string  $recipientUsernames
  * @property-read integer $time
+ * @property-read boolean $isNotification
  */
 class CustomNotification extends DatabaseObject {
 	/**
@@ -45,10 +46,26 @@ class CustomNotification extends DatabaseObject {
 	}
 	
 	/**
+	 * @var integer
+	 */
+	const MAX_API_REQUESTS = 20;
+	
+	/**
 	 * @param boolean $skipReplace prevents replacing variables by it's values
 	 * @return string
 	 */
 	public function getMessage($skipReplace = false) {
+		if (!$skipReplace) {
+			return $this->getPersonalizedMessage(WCF::getUser());
+		} else {
+			$htmlOutputProcessor = new HtmlOutputProcessor();
+			$htmlOutputProcessor->setOutputType('text/html');
+			$htmlOutputProcessor->process(WCF::getLanguage()->get($this->message), 'de.mysterycode.wcf.wscConnect.notification.custom', $this->notificationID);
+			return $htmlOutputProcessor->getHtml();
+		}
+	}
+	
+	public function getPersonalizedMessage(User $user) {
 		$message = WCF::getLanguage()->get($this->message);
 		
 		$htmlOutputProcessor = new HtmlOutputProcessor();
@@ -56,25 +73,21 @@ class CustomNotification extends DatabaseObject {
 		$htmlOutputProcessor->process($message, 'de.mysterycode.wcf.wscConnect.notification.custom', $this->notificationID);
 		$message = $htmlOutputProcessor->getHtml();
 		
-		if (!$skipReplace) {
-			$message = preg_replace_callback('/\{\$(' . implode('|', self::SUPPORTED_VARIABLES) . ')\$\}/', function ($match) {
-				return $this->replaceVariable($match);
-			}, $message);
-		}
-		
-		return $message;
+		return preg_replace_callback('/\{\$(' . implode('|', self::SUPPORTED_VARIABLES) . ')\$\}/', function ($match) use ($user) {
+			return $this->replaceVariable($match, $user);
+		}, $message);
 	}
 	
 	/**
 	 * @param string[] $matches
 	 * @return string
 	 */
-	protected function replaceVariable($matches = []) {
+	protected function replaceVariable($matches = [], User $user) {
 		if ($matches[1] == 'username') {
-			return '<a href="' . WCF::getUser()->getLink() . '" class="userLink" data-user-id="' . WCF::getUser()->userID . '">'. WCF::getUser()->username . '</a>';
+			return '<a href="' . $user->getLink() . '" class="userLink" data-user-id="' . $user->userID . '">'. $user->username . '</a>';
 		}
 		else {
-			return WCF::getUser()->{$matches[1]};
+			return $user->{$matches[1]};
 		}
 	}
 	

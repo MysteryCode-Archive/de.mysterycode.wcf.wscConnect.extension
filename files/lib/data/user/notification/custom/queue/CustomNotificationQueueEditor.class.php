@@ -3,7 +3,6 @@
 namespace wcf\data\user\notification\custom\queue;
 
 use wcf\data\DatabaseObjectEditor;
-use wcf\data\user\notification\custom\CustomNotification;
 
 /**
  * Class CustomNotificationQueueEditor
@@ -18,5 +17,5 @@ class CustomNotificationQueueEditor extends DatabaseObjectEditor {
 	/**
 	 * @inheritDoc
 	 */
-	protected static $baseClass = CustomNotification::class;
+	protected static $baseClass = CustomNotificationQueue::class;
 }

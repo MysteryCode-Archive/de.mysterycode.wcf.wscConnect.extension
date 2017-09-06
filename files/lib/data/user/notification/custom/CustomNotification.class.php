@@ -52,29 +52,30 @@ class CustomNotification extends DatabaseObject {
 	
 	/**
 	 * @param boolean $skipReplace prevents replacing variables by it's values
+	 * @param string  $outputType
 	 * @return string
 	 */
-	public function getMessage($skipReplace = false) {
+	public function getMessage($skipReplace = false, $outputType = 'text/html') {
 		if (!$skipReplace) {
-			return $this->getPersonalizedMessage(WCF::getUser());
+			return $this->getPersonalizedMessage(WCF::getUser(), $outputType);
 		} else {
 			$htmlOutputProcessor = new HtmlOutputProcessor();
-			$htmlOutputProcessor->setOutputType('text/html');
+			$htmlOutputProcessor->setOutputType($outputType);
 			$htmlOutputProcessor->process(WCF::getLanguage()->get($this->message), 'de.mysterycode.wcf.wscConnect.notification.custom', $this->notificationID);
 			return $htmlOutputProcessor->getHtml();
 		}
 	}
 	
-	public function getPersonalizedMessage(User $user) {
+	public function getPersonalizedMessage(User $user, $outputType = 'text/html') {
 		$message = WCF::getLanguage()->get($this->message);
 		
 		$htmlOutputProcessor = new HtmlOutputProcessor();
-		$htmlOutputProcessor->setOutputType('text/html');
+		$htmlOutputProcessor->setOutputType($outputType);
 		$htmlOutputProcessor->process($message, 'de.mysterycode.wcf.wscConnect.notification.custom', $this->notificationID);
 		$message = $htmlOutputProcessor->getHtml();
 		
-		return preg_replace_callback('/\{\$(' . implode('|', self::SUPPORTED_VARIABLES) . ')\$\}/', function ($match) use ($user) {
-			return $this->replaceVariable($match, $user);
+		return preg_replace_callback('/\{\$(' . implode('|', self::SUPPORTED_VARIABLES) . ')\$\}/', function ($match) use ($user, $outputType) {
+			return $this->replaceVariable($match, $user, $outputType);
 		}, $message);
 	}
 	
@@ -82,9 +83,12 @@ class CustomNotification extends DatabaseObject {
 	 * @param string[] $matches
 	 * @return string
 	 */
-	protected function replaceVariable($matches = [], User $user) {
+	protected function replaceVariable($matches = [], User $user, $outputType) {
 		if ($matches[1] == 'username') {
-			return '<a href="' . $user->getLink() . '" class="userLink" data-user-id="' . $user->userID . '">'. $user->username . '</a>';
+			if ($outputType == 'text/plain')
+				return $user->username;
+			else
+				return '<a href="' . $user->getLink() . '" class="userLink" data-user-id="' . $user->userID . '">'. $user->username . '</a>';
 		}
 		else {
 			return $user->{$matches[1]};

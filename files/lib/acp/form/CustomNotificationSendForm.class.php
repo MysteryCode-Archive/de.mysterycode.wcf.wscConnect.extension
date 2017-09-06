@@ -96,7 +96,7 @@ class CustomNotificationSendForm extends AbstractAcpForm {
 		
 		if (empty($this->subject)) throw new UserInputException('subject');
 		if (empty($this->message)) throw new UserInputException('message');
-		if (empty($this->url)) throw new UserInputException('url');
+		if (empty($this->url) && $this->isNotification) throw new UserInputException('url');
 		if (empty($this->recipientUsers)) throw new UserInputException('recipients');
 		
 		$this->htmlInputProcessor = new HtmlInputProcessor();

@@ -46,7 +46,7 @@
 			<dt><label for="url">{lang}wcf.acp.wsc_connect.notification.custom.url{/lang}</label></dt>
 			<dd>
 				{*<input id="url" name="url" type="text" value="{$$i18nPlainValues[url]}">*}
-				<input id="url" name="url" type="text" value="{$url}" class="long" required>
+				<input id="url" name="url" type="text" value="{$url}" class="long">
 				{*{include file='multipleLanguageInputJavascript' elementIdentifier='url' forceSelection=false}*}
 				<small>{lang}wcf.acp.wsc_connect.notification.custom.url.description{/lang}</small>
 				{if $errorField == 'url'}

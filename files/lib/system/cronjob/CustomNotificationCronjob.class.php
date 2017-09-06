@@ -12,7 +12,7 @@ class CustomNotificationCronjob extends AbstractCronjob {
 		parent::execute($cronjob);
 		
 		$itemList = new CustomNotificationQueueList();
-		$itemList->getConditionBuilder()->add('custom_notification_queue.errored = 0');
+		$itemList->getConditionBuilder()->add('user_notification_custom_queue.errored = 0');
 		$itemList->sqlLimit = CustomNotification::MAX_API_REQUESTS;
 		$itemList->readObjects();
 		$items = $itemList->getObjects();
